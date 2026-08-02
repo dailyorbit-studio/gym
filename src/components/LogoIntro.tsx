@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
-import { img } from "@/lib/images";
+import Logo from "@/components/Logo";
+import { site } from "@/lib/site";
 
-const SEEN_KEY = "creed-intro-seen";
+const SEEN_KEY = "brand-intro-seen";
 
 /** The flag never changes mid-render, so there is nothing to subscribe to. */
 const noSubscribe = () => () => {};
@@ -68,16 +68,9 @@ export default function LogoIntro() {
               initial={{ scale: 0.6, opacity: 0, filter: "blur(8px)" }}
               animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="relative grid place-items-center rounded-2xl bg-white p-4 shadow-[0_0_80px_-10px_rgba(225,29,42,0.75)]"
+              className="relative grid place-items-center rounded-2xl p-2 shadow-[0_0_80px_-10px_rgba(225,29,42,0.75)]"
             >
-              <Image
-                src={img.logo}
-                alt=""
-                width={1048}
-                height={1081}
-                priority
-                className="h-24 w-auto sm:h-32"
-              />
+              <Logo size={112} markOnly />
             </motion.div>
 
             {/* Wordmark revealed by a red wipe */}
@@ -86,15 +79,15 @@ export default function LogoIntro() {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.45, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display text-2xl tracking-[0.14em] text-white sm:text-4xl"
+                className="font-display text-2xl uppercase tracking-[0.14em] text-white sm:text-4xl"
               >
-                FORGE YOUR <span className="text-creed">CREED</span>
+                {site.brand.hero.pre} <span className="text-brand">{site.brand.hero.accent}</span>
               </motion.p>
               <motion.span
                 initial={{ x: "-110%" }}
                 animate={{ x: "110%" }}
                 transition={{ delay: 0.45, duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                className="absolute inset-0 bg-creed"
+                className="absolute inset-0 bg-brand"
               />
             </div>
 
@@ -103,7 +96,7 @@ export default function LogoIntro() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.6, duration: 1.2, ease: "easeInOut" }}
-              className="mt-6 block h-px w-40 origin-left bg-gradient-to-r from-creed via-creed-light to-transparent"
+              className="mt-6 block h-px w-40 origin-left bg-gradient-to-r from-brand via-brand-light to-transparent"
             />
           </div>
         </motion.div>

@@ -6,19 +6,17 @@ import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import SectionReveal from "@/components/SectionReveal";
 import { img } from "@/lib/images";
-import { site } from "@/lib/site";
+import { areaLabel, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Gallery | Inside Kandivali's 9000 Sq Ft Gym",
-  description:
-    "Take a look inside Creed Culture Gym, Kandivali West — the red steel training floor, plate-loaded machines, cardio deck, group class studio and premium change rooms.",
+  title: `Gallery | Inside ${site.name}`,
+  description: `Take a look inside ${site.name} — the red steel training floor, plate-loaded machines, cardio deck, group class studio and premium change rooms.`,
   alternates: { canonical: "/gallery" },
   openGraph: {
-    title: "Gallery | Creed Culture Gym, Kandivali West",
-    description:
-      "Photos from inside our 9000+ sq ft facility — equipment, interiors, classes and community.",
+    title: `Gallery | ${site.name}`,
+    description: `Photos from inside our ${areaLabel} facility — equipment, interiors, classes and community.`,
     url: `${site.url}/gallery`,
-    images: [{ url: "/images/gym-floor-wide.webp", width: 1728, height: 1152 }],
+    images: [{ url: "/images/gym-floor-wide.webp", width: 1728, height: 876 }],
   },
 };
 
@@ -32,16 +30,16 @@ export default function GalleryPage() {
         accent="black floors"
         subtitle="No stock photos of the lobby. This is the room you'll actually be training in."
         image={img.proShop}
-        imageAlt="Backlit supplement and apparel display wall inside Creed Culture Gym"
+        imageAlt="Backlit supplement and apparel display wall inside the gym"
       />
 
       <section className="py-14 sm:py-18 lg:py-28">
-        <div className="container-creed">
+        <div className="container-brand">
           <SectionHeading
             align="center"
             eyebrow="The facility"
-            title="Every corner of"
-            accent="9000 sq ft"
+            title="Every corner of the"
+            accent="floor"
             subtitle="Filter by area, then click any photo to open it full size. Arrow keys move between shots."
           />
 
@@ -56,7 +54,7 @@ export default function GalleryPage() {
                 href={site.socials.instagram.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-creed underline-offset-4 hover:underline"
+                className="font-semibold text-brand underline-offset-4 hover:underline"
               >
                 {site.socials.instagram.handle}
               </a>{" "}
@@ -70,7 +68,7 @@ export default function GalleryPage() {
         eyebrow="Photos only go so far"
         title="Come stand"
         accent="on the floor"
-        body="Book a free trial and see the scale of the place in person. Kandivali West, open every day until 11 PM."
+        body="Book a free trial and see the scale of the place in person. Open every day until 11 PM."
         image={img.machinesRow}
         primaryHref="/contact"
         primaryLabel="Plan Your Visit"

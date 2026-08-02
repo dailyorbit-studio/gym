@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import MagneticButton from "@/components/MagneticButton";
 import { CheckIcon, WhatsAppIcon } from "@/components/Icons";
-import { site } from "@/lib/site";
+import { site, whatsappLink } from "@/lib/site";
 
 type Fields = { name: string; phone: string; email: string; message: string };
 type Errors = Partial<Record<keyof Fields, string>>;
@@ -31,7 +31,7 @@ function validate(values: Fields): Errors {
 const field =
   "w-full border border-white/15 bg-white/[0.04] px-4 py-3.5 text-sm text-white " +
   "placeholder:text-white/30 transition-colors duration-300 " +
-  "focus:border-creed focus:bg-white/[0.07] focus:outline-none";
+  "focus:border-brand focus:bg-white/[0.07] focus:outline-none";
 
 /**
  * Enquiry form. There is no mail backend on this site, so a valid submission
@@ -67,21 +67,19 @@ export default function ContactForm() {
       return;
     }
 
-    const text = encodeURIComponent(
-      [
-        `Hi Creed Culture Gym!`,
-        ``,
-        `Name: ${values.name.trim()}`,
-        `Phone: ${values.phone.trim()}`,
-        values.email.trim() ? `Email: ${values.email.trim()}` : null,
-        ``,
-        values.message.trim(),
-      ]
-        .filter((l) => l !== null)
-        .join("\n"),
-    );
+    const message = [
+      `Hi ${site.name}!`,
+      ``,
+      `Name: ${values.name.trim()}`,
+      `Phone: ${values.phone.trim()}`,
+      values.email.trim() ? `Email: ${values.email.trim()}` : null,
+      ``,
+      values.message.trim(),
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
 
-    window.open(`${site.whatsapp.href}?text=${text}`, "_blank", "noopener,noreferrer");
+    window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
     setSent(true);
   }
 
@@ -108,7 +106,7 @@ export default function ContactForm() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.1, type: "spring", stiffness: 240, damping: 16 }}
-              className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-creed text-white"
+              className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-brand text-white"
             >
               <CheckIcon className="h-7 w-7" />
             </motion.span>
@@ -119,7 +117,7 @@ export default function ContactForm() {
               team will reply shortly. If the tab didn&apos;t open, call us on{" "}
               <a
                 href={`tel:${site.phones[0].tel}`}
-                className="font-semibold text-creed hover:underline"
+                className="font-semibold text-brand hover:underline"
               >
                 {site.phones[0].label}
               </a>
@@ -129,7 +127,7 @@ export default function ContactForm() {
             <button
               type="button"
               onClick={reset}
-              className="mt-7 font-heading text-[11px] uppercase tracking-[0.24em] text-white/50 underline-offset-4 transition-colors hover:text-creed hover:underline"
+              className="mt-7 font-heading text-[11px] uppercase tracking-[0.24em] text-white/50 underline-offset-4 transition-colors hover:text-brand hover:underline"
             >
               Send another enquiry
             </button>
@@ -188,7 +186,7 @@ export default function ContactForm() {
                 htmlFor="message"
                 className="mb-2 block font-heading text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60"
               >
-                Message <span className="text-creed">*</span>
+                Message <span className="text-brand">*</span>
               </label>
               <textarea
                 id="message"
@@ -200,11 +198,11 @@ export default function ContactForm() {
                 aria-invalid={Boolean(touched.message && errors.message)}
                 aria-describedby={touched.message && errors.message ? "message-error" : undefined}
                 className={`${field} resize-y ${
-                  touched.message && errors.message ? "border-creed" : ""
+                  touched.message && errors.message ? "border-brand" : ""
                 }`}
               />
               {touched.message && errors.message && (
-                <p id="message-error" role="alert" className="mt-2 text-xs text-creed">
+                <p id="message-error" role="alert" className="mt-2 text-xs text-brand">
                   {errors.message}
                 </p>
               )}
@@ -264,7 +262,7 @@ function Field({
       >
         {label}{" "}
         {required ? (
-          <span className="text-creed">*</span>
+          <span className="text-brand">*</span>
         ) : (
           hint && <span className="text-white/25">({hint})</span>
         )}
@@ -279,10 +277,10 @@ function Field({
         autoComplete={autoComplete}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`${field} ${error ? "border-creed" : ""}`}
+        className={`${field} ${error ? "border-brand" : ""}`}
       />
       {error && (
-        <p id={`${id}-error`} role="alert" className="mt-2 text-xs text-creed">
+        <p id={`${id}-error`} role="alert" className="mt-2 text-xs text-brand">
           {error}
         </p>
       )}

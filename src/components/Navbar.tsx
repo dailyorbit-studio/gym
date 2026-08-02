@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import Logo from "@/components/Logo";
 import { navLinks, site } from "@/lib/site";
-import { img } from "@/lib/images";
 import {
   ClockIcon,
   CloseIcon,
@@ -58,22 +57,22 @@ export default function Navbar() {
       {/* Utility strip — scrolls away, keeps the phone number above the fold */}
       {/* ---------------------------------------------------------------- */}
       <div className="relative z-40 hidden border-b border-white/10 bg-char/80 md:block">
-        <div className="container-creed flex h-9 items-center justify-between text-[11px] tracking-wide text-white/55">
+        <div className="container-brand flex h-9 items-center justify-between text-[11px] tracking-wide text-white/55">
           <p className="flex items-center gap-2">
-            <StarIcon className="h-3 w-3 text-creed" />
+            <StarIcon className="h-3 w-3 text-brand" />
             <span className="font-semibold text-white/80">{site.rating.value}★</span>
             <span>· {site.rating.count}+ ratings on Google</span>
           </p>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5">
-              <ClockIcon className="h-3.5 w-3.5 text-creed" />
+              <ClockIcon className="h-3.5 w-3.5 text-brand" />
               {site.hours.summary}
             </span>
             <a
               href={`tel:${site.phones[0].tel}`}
               className="flex items-center gap-1.5 transition-colors hover:text-white"
             >
-              <PhoneIcon className="h-3.5 w-3.5 text-creed" />
+              <PhoneIcon className="h-3.5 w-3.5 text-brand" />
               {site.phones[0].label}
             </a>
           </div>
@@ -95,35 +94,22 @@ export default function Navbar() {
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px overflow-hidden"
         >
-          <span className="block h-full w-1/3 animate-streak bg-gradient-to-r from-transparent via-creed to-transparent" />
+          <span className="block h-full w-1/3 animate-streak bg-gradient-to-r from-transparent via-brand to-transparent" />
         </span>
 
         <nav
           aria-label="Main"
-          className={`container-creed flex items-center justify-between transition-all duration-300 ${
+          className={`container-brand flex items-center justify-between transition-all duration-300 ${
             scrolled ? "h-16" : "h-20"
           }`}
         >
           {/* Brand ------------------------------------------------------- */}
-          <Link href="/" className="group flex items-center gap-3" aria-label={`${site.name} — home`}>
-            <span className="relative grid place-items-center rounded-lg bg-white p-1.5 transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src={img.logo}
-                alt=""
-                width={1048}
-                height={1081}
-                priority
-                className={`w-auto transition-all duration-300 ${scrolled ? "h-8" : "h-10"}`}
-              />
-            </span>
-            <span className="hidden leading-none sm:block">
-              <span className="block font-display text-xl tracking-wide text-white">
-                CREED <span className="text-creed">CULTURE</span>
-              </span>
-              <span className="mt-0.5 block font-heading text-[9px] font-medium uppercase tracking-[0.42em] text-white/40">
-                Kandivali West
-              </span>
-            </span>
+          <Link
+            href="/"
+            className="group flex items-center transition-transform duration-300 hover:scale-[1.02]"
+            aria-label={`${site.name} — home`}
+          >
+            <Logo size={scrolled ? 34 : 40} />
           </Link>
 
           {/* Desktop links ---------------------------------------------- */}
@@ -136,7 +122,7 @@ export default function Navbar() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     className={`relative block px-4 py-2 font-heading text-[13px] font-medium uppercase tracking-[0.18em] transition-colors duration-200 ${
-                      active ? "text-creed" : "text-white/65 hover:text-white"
+                      active ? "text-brand" : "text-white/65 hover:text-white"
                     }`}
                   >
                     {link.label}
@@ -148,7 +134,7 @@ export default function Navbar() {
                             ? { duration: 0 }
                             : { type: "spring", stiffness: 380, damping: 32 }
                         }
-                        className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-creed"
+                        className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-brand"
                       />
                     )}
                     {/* Underline sweep on hover for inactive links */}
@@ -168,7 +154,7 @@ export default function Navbar() {
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="/pricing"
-              className="group relative overflow-hidden bg-creed px-6 py-3 font-heading text-[13px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-creed-light"
+              className="group relative overflow-hidden bg-brand px-6 py-3 font-heading text-[13px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-brand-light"
             >
               <span
                 aria-hidden
@@ -185,7 +171,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid h-11 w-11 place-items-center border border-white/15 text-white transition-colors hover:border-creed hover:text-creed lg:hidden"
+            className="grid h-11 w-11 place-items-center border border-white/15 text-white transition-colors hover:border-brand hover:text-brand lg:hidden"
           >
             {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
           </button>
@@ -207,7 +193,7 @@ export default function Navbar() {
           >
             <div aria-hidden className="pointer-events-none absolute inset-0 hazard opacity-60" />
 
-            <nav aria-label="Mobile" className="container-creed relative flex-1 overflow-y-auto">
+            <nav aria-label="Mobile" className="container-brand relative flex-1 overflow-y-auto">
               <ul className="flex flex-col">
                 {navLinks.map((link, i) => {
                   const active = isActive(link.href);
@@ -222,7 +208,7 @@ export default function Navbar() {
                       <Link
                         href={link.href}
                         className={`flex items-baseline gap-4 py-4 font-display text-3xl uppercase transition-colors sm:py-5 sm:text-4xl ${
-                          active ? "text-creed" : "text-white hover:text-creed"
+                          active ? "text-brand" : "text-white hover:text-brand"
                         }`}
                       >
                         <span className="font-heading text-xs tracking-[0.3em] text-white/30">
@@ -243,7 +229,7 @@ export default function Navbar() {
               >
                 <Link
                   href="/pricing"
-                  className="block bg-creed py-4 text-center font-heading text-sm font-semibold uppercase tracking-[0.2em] text-white"
+                  className="block bg-brand py-4 text-center font-heading text-sm font-semibold uppercase tracking-[0.2em] text-white"
                 >
                   Join Now
                 </Link>
@@ -255,12 +241,12 @@ export default function Navbar() {
                       href={`tel:${p.tel}`}
                       className="flex items-center gap-3 transition-colors hover:text-white"
                     >
-                      <PhoneIcon className="h-4 w-4 text-creed" />
+                      <PhoneIcon className="h-4 w-4 text-brand" />
                       {p.label}
                     </a>
                   ))}
                   <p className="flex items-center gap-3">
-                    <ClockIcon className="h-4 w-4 text-creed" />
+                    <ClockIcon className="h-4 w-4 text-brand" />
                     {site.hours.summary}
                   </p>
                 </div>
@@ -271,7 +257,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="grid h-11 w-11 place-items-center border border-white/15 text-white/70 transition-colors hover:border-creed hover:text-creed"
+                    className="grid h-11 w-11 place-items-center border border-white/15 text-white/70 transition-colors hover:border-brand hover:text-brand"
                   >
                     <InstagramIcon className="h-5 w-5" />
                   </a>
@@ -280,7 +266,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    className="grid h-11 w-11 place-items-center border border-white/15 text-white/70 transition-colors hover:border-creed hover:text-creed"
+                    className="grid h-11 w-11 place-items-center border border-white/15 text-white/70 transition-colors hover:border-brand hover:text-brand"
                   >
                     <FacebookIcon className="h-5 w-5" />
                   </a>

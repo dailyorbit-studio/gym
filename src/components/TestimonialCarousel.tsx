@@ -43,7 +43,7 @@ export default function TestimonialCarousel() {
       {/* Oversized quote glyph */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -top-4 left-0 select-none font-display text-[5rem] leading-none text-creed/15 sm:-top-8 sm:text-[9rem] lg:text-[12rem]"
+        className="pointer-events-none absolute -top-4 left-0 select-none font-display text-[5rem] leading-none text-brand/15 sm:-top-8 sm:text-[9rem] lg:text-[12rem]"
       >
         “
       </span>
@@ -63,7 +63,7 @@ export default function TestimonialCarousel() {
             className="relative pl-0 sm:pl-8 lg:pl-10"
             aria-live="polite"
           >
-            <div className="mb-5 flex gap-1 text-creed" aria-label={`${item.rating} out of 5 stars`}>
+            <div className="mb-5 flex gap-1 text-brand" aria-label={`${item.rating} out of 5 stars`}>
               {Array.from({ length: 5 }).map((_, i) => (
                 <StarIcon
                   key={i}
@@ -80,7 +80,7 @@ export default function TestimonialCarousel() {
             <footer className="mt-7 flex items-center gap-4">
               <span
                 aria-hidden
-                className="grid h-12 w-12 shrink-0 place-items-center border border-creed/50 bg-creed/10 font-display text-lg text-creed"
+                className="grid h-12 w-12 shrink-0 place-items-center border border-brand/50 bg-brand/10 font-display text-lg text-brand"
               >
                 {item.name.charAt(0)}
               </span>
@@ -107,7 +107,7 @@ export default function TestimonialCarousel() {
               aria-label={`Review ${i + 1} of ${testimonials.length}`}
               onClick={() => go(i, i > index ? 1 : -1)}
               className={`h-1.5 transition-all duration-400 ${
-                i === index ? "w-10 bg-creed" : "w-4 bg-white/20 hover:bg-white/45"
+                i === index ? "w-10 bg-brand" : "w-4 bg-white/20 hover:bg-white/45"
               }`}
             />
           ))}
@@ -118,7 +118,7 @@ export default function TestimonialCarousel() {
             type="button"
             onClick={() => go(index - 1, -1)}
             aria-label="Previous review"
-            className="grid h-11 w-11 place-items-center border border-white/15 text-white/70 transition-colors hover:border-creed hover:text-creed"
+            className="grid h-11 w-11 place-items-center border border-white/15 text-white/70 transition-colors hover:border-brand hover:text-brand"
           >
             <span aria-hidden className="text-lg leading-none">‹</span>
           </button>
@@ -126,7 +126,7 @@ export default function TestimonialCarousel() {
             type="button"
             onClick={() => go(index + 1, 1)}
             aria-label="Next review"
-            className="grid h-11 w-11 place-items-center border border-white/15 text-white/70 transition-colors hover:border-creed hover:text-creed"
+            className="grid h-11 w-11 place-items-center border border-white/15 text-white/70 transition-colors hover:border-brand hover:text-brand"
           >
             <span aria-hidden className="text-lg leading-none">›</span>
           </button>

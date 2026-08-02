@@ -29,13 +29,13 @@ export default function NotFound() {
         className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/80 to-ink/40"
       />
 
-      <div className="container-creed relative">
-        <p className="mb-4 flex items-center gap-3 font-heading text-xs font-semibold uppercase tracking-[0.32em] text-creed">
-          <span aria-hidden className="h-px w-8 bg-creed" />
+      <div className="container-brand relative">
+        <p className="mb-4 flex items-center gap-3 font-heading text-xs font-semibold uppercase tracking-[0.32em] text-brand">
+          <span aria-hidden className="h-px w-8 bg-brand" />
           Error 404
         </p>
 
-        <h1 className="text-[clamp(4rem,18vw,13rem)] leading-[0.82] text-creed drop-shadow-[0_0_50px_rgba(225,29,42,0.4)]">
+        <h1 className="text-[clamp(4rem,18vw,13rem)] leading-[0.82] text-brand drop-shadow-[0_0_50px_rgba(225,29,42,0.4)]">
           404
         </h1>
 
@@ -68,9 +68,9 @@ export default function NotFound() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="group inline-flex items-center gap-2 font-heading text-sm uppercase tracking-[0.14em] text-white/55 transition-colors hover:text-creed"
+                  className="group inline-flex items-center gap-2 font-heading text-sm uppercase tracking-[0.14em] text-white/55 transition-colors hover:text-brand"
                 >
-                  <span aria-hidden className="h-px w-0 bg-creed transition-all duration-300 group-hover:w-4" />
+                  <span aria-hidden className="h-px w-0 bg-brand transition-all duration-300 group-hover:w-4" />
                   {link.label}
                 </Link>
               </li>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Creed Culture Gym — design tokens
+   Gym template — design tokens
    Industrial red/black: aggressive red accent on deep black + charcoal steel.
    ========================================================================== */
 
@@ -13,9 +13,9 @@
   --color-steel: #232323; /* raised / borders */
 
   /* Brand */
-  --color-creed: #e11d2a;
-  --color-creed-light: #ff3b47;
-  --color-creed-dark: #9e1119;
+  --color-brand: #e11d2a;
+  --color-brand-light: #ff3b47;
+  --color-brand-dark: #9e1119;
 
   /* Typography */
   --font-display: var(--font-anton), "Arial Narrow", "Haettenschweiler", sans-serif;
@@ -23,11 +23,11 @@
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   /* Motion */
-  --ease-creed: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
   --animate-streak: streak 7s linear infinite;
-  --animate-pulse-ring: pulse-ring 2.4s var(--ease-creed) infinite;
+  --animate-pulse-ring: pulse-ring 2.4s var(--ease-brand) infinite;
   --animate-marquee: marquee 38s linear infinite;
-  --animate-scroll-dot: scroll-dot 1.9s var(--ease-creed) infinite;
+  --animate-scroll-dot: scroll-dot 1.9s var(--ease-brand) infinite;
 }
 
 @keyframes streak {
@@ -126,13 +126,13 @@
   }
 
   ::selection {
-    background-color: var(--color-creed);
+    background-color: var(--color-brand);
     color: #fff;
   }
 
   /* Focus ring that stays visible on the dark palette */
   :focus-visible {
-    outline: 2px solid var(--color-creed-light);
+    outline: 2px solid var(--color-brand-light);
     outline-offset: 3px;
   }
 
@@ -148,7 +148,7 @@
     border-radius: 999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-creed);
+    background: var(--color-brand);
   }
 }
 
@@ -156,7 +156,7 @@
    Utilities
    ========================================================================== */
 
-@utility container-creed {
+@utility container-brand {
   width: 100%;
   margin-inline: auto;
   max-width: 80rem;

@@ -14,24 +14,22 @@ import {
   WhatsAppIcon,
 } from "@/components/Icons";
 import { img } from "@/lib/images";
-import { fullAddress, site } from "@/lib/site";
+import { fullAddress, site, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact & Location | Gym in Kandivali West, Mumbai",
-  description:
-    "Visit Creed Culture Gym at Charkop Industrial Estate, Kandivali West, Mumbai 400067. Call +91 93247 20086, message us on WhatsApp, or send an enquiry. Open daily until 11 PM.",
+  title: "Contact & Location | Visit the Gym",
+  description: `Visit ${site.name} at ${site.address.line1}, ${site.address.locality}, ${site.address.city} ${site.address.postalCode}. Call ${site.phones[0].label}, message us on WhatsApp, or send an enquiry. Open daily until 11 PM.`,
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Creed Culture Gym | Kandivali West, Mumbai",
-    description:
-      "Find us at Charkop Industrial Estate, Kandivali West. Call, WhatsApp or drop by — open every day until 11 PM.",
+    title: `Contact ${site.name}`,
+    description: `Find us in ${site.address.locality}, ${site.address.city}. Call, WhatsApp or drop by — open every day until 11 PM.`,
     url: `${site.url}/contact`,
-    images: [{ url: "/images/gym-floor-wide.webp", width: 1728, height: 1152 }],
+    images: [{ url: "/images/gym-floor-wide.webp", width: 1728, height: 876 }],
   },
 };
 
-const VISIT_MSG = encodeURIComponent(
-  "Hi Creed Culture Gym! I'd like to visit the gym and book a free trial session.",
+const VISIT_LINK = whatsappLink(
+  `Hi ${site.name}! I'd like to visit the gym and book a free trial session.`,
 );
 
 export default function ContactPage() {
@@ -41,10 +39,10 @@ export default function ContactPage() {
         crumb="Contact"
         eyebrow="Come say hello"
         title="Find us in"
-        accent="Kandivali West"
-        subtitle="Charkop Industrial Estate, five minutes from Hindustan Naka. Walk in any day until 11 PM."
+        accent={site.address.city}
+        subtitle={`${site.address.line1}, ${site.address.locality}. Walk in any day until 11 PM.`}
         image={img.floorWide}
-        imageAlt="The Creed Culture Gym training floor seen from the entrance"
+        imageAlt={`The ${site.name} training floor seen from the entrance`}
       />
 
       {/* ================================================================= */}
@@ -53,7 +51,7 @@ export default function ContactPage() {
       <section className="border-b border-white/10 bg-coal">
         {/* `gap-px` over a light background paints hairline dividers that stay
             correct at every column count, unlike per-item borders. */}
-        <div className="container-creed">
+        <div className="container-brand">
           <div className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
@@ -73,7 +71,7 @@ export default function ContactPage() {
                 icon: WhatsAppIcon,
                 label: "WhatsApp",
                 value: "Chat with the team",
-                href: `${site.whatsapp.href}?text=${VISIT_MSG}`,
+                href: VISIT_LINK,
                 external: true,
               },
               {
@@ -84,7 +82,7 @@ export default function ContactPage() {
             ].map((tile, i) => {
               const content = (
                 <>
-                  <span className="mb-4 grid h-11 w-11 place-items-center border border-white/15 text-creed transition-all duration-400 group-hover:border-creed group-hover:bg-creed group-hover:text-white">
+                  <span className="mb-4 grid h-11 w-11 place-items-center border border-white/15 text-brand transition-all duration-400 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                     <tile.icon className="h-5 w-5" />
                   </span>
                   <span className="block font-heading text-[10px] uppercase tracking-[0.26em] text-white/40">
@@ -125,7 +123,7 @@ export default function ContactPage() {
       {/* Form + details                                                    */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+        <div className="container-brand grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           {/* Details */}
           <div>
             <SectionHeading
@@ -138,7 +136,7 @@ export default function ContactPage() {
             <SectionReveal delay={0.12} className="mt-10 space-y-8">
               {/* Address */}
               <div className="flex gap-4">
-                <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center border border-white/15 text-creed">
+                <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center border border-white/15 text-brand">
                   <PinIcon className="h-5 w-5" />
                 </span>
                 <div>
@@ -152,7 +150,7 @@ export default function ContactPage() {
                     href={site.mapsLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 inline-block font-heading text-[11px] uppercase tracking-[0.22em] text-creed underline-offset-4 hover:underline"
+                    className="mt-2 inline-block font-heading text-[11px] uppercase tracking-[0.22em] text-brand underline-offset-4 hover:underline"
                   >
                     Open in Google Maps
                   </a>
@@ -161,7 +159,7 @@ export default function ContactPage() {
 
               {/* Phones */}
               <div className="flex gap-4">
-                <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center border border-white/15 text-creed">
+                <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center border border-white/15 text-brand">
                   <PhoneIcon className="h-5 w-5" />
                 </span>
                 <div>
@@ -173,7 +171,7 @@ export default function ContactPage() {
                       <li key={p.tel}>
                         <a
                           href={`tel:${p.tel}`}
-                          className="text-sm text-white/55 transition-colors hover:text-creed"
+                          className="text-sm text-white/55 transition-colors hover:text-brand"
                         >
                           {p.label}
                         </a>
@@ -185,7 +183,7 @@ export default function ContactPage() {
 
               {/* Hours */}
               <div className="flex gap-4">
-                <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center border border-white/15 text-creed">
+                <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center border border-white/15 text-brand">
                   <ClockIcon className="h-5 w-5" />
                 </span>
                 <div>
@@ -204,7 +202,7 @@ export default function ContactPage() {
 
               {/* Socials */}
               <div className="flex gap-4">
-                <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center border border-white/15 text-creed">
+                <span className="mt-0.5 grid h-11 w-11 shrink-0 place-items-center border border-white/15 text-brand">
                   <InstagramIcon className="h-5 w-5" />
                 </span>
                 <div>
@@ -216,7 +214,7 @@ export default function ContactPage() {
                       href={site.socials.instagram.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-white/15 px-4 py-2.5 text-xs text-white/65 transition-all duration-300 hover:-translate-y-0.5 hover:border-creed hover:text-creed"
+                      className="inline-flex items-center gap-2 border border-white/15 px-4 py-2.5 text-xs text-white/65 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:text-brand"
                     >
                       <InstagramIcon className="h-4 w-4" />
                       {site.socials.instagram.handle}
@@ -225,7 +223,7 @@ export default function ContactPage() {
                       href={site.socials.facebook.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-white/15 px-4 py-2.5 text-xs text-white/65 transition-all duration-300 hover:-translate-y-0.5 hover:border-creed hover:text-creed"
+                      className="inline-flex items-center gap-2 border border-white/15 px-4 py-2.5 text-xs text-white/65 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:text-brand"
                     >
                       <FacebookIcon className="h-4 w-4" />
                       Facebook
@@ -259,14 +257,14 @@ export default function ContactPage() {
 
           {/* Floating address card */}
           <div className="pointer-events-none absolute inset-0 hidden items-center lg:flex">
-            <div className="container-creed">
-              <div className="pointer-events-auto max-w-sm border border-creed/50 bg-ink/95 p-8 shadow-[0_30px_70px_-24px_rgba(0,0,0,0.9)] backdrop-blur-sm">
+            <div className="container-brand">
+              <div className="pointer-events-auto max-w-sm border border-brand/50 bg-ink/95 p-8 shadow-[0_30px_70px_-24px_rgba(0,0,0,0.9)] backdrop-blur-sm">
                 <h2 className="text-2xl text-white">{site.name}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-white/55">
                   {fullAddress}
                 </p>
                 <p className="mt-4 flex items-center gap-2 text-sm text-white/70">
-                  <ClockIcon className="h-4 w-4 text-creed" />
+                  <ClockIcon className="h-4 w-4 text-brand" />
                   {site.hours.summary}
                 </p>
                 <div className="mt-6">
@@ -292,13 +290,13 @@ export default function ContactPage() {
           aria-hidden
           className="pointer-events-none absolute inset-0 hazard opacity-70"
         />
-        <div className="container-creed relative flex flex-col items-center gap-8 text-center">
+        <div className="container-brand relative flex flex-col items-center gap-8 text-center">
           <SectionReveal>
             <span className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_16px_40px_-10px_rgba(37,211,102,0.7)]">
               <WhatsAppIcon className="h-8 w-8" />
             </span>
             <h2 className="text-[clamp(2rem,6vw,4rem)] leading-[0.92]">
-              Prefer to just <span className="text-creed">message us?</span>
+              Prefer to just <span className="text-brand">message us?</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/60">
               Send us a WhatsApp and we&apos;ll sort out your trial slot, answer
@@ -307,7 +305,7 @@ export default function ContactPage() {
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-4">
               <MagneticButton
-                href={`${site.whatsapp.href}?text=${VISIT_MSG}`}
+                href={VISIT_LINK}
                 variant="primary"
                 className="px-6 py-3.5 sm:px-9 sm:py-4"
               >

@@ -3,11 +3,11 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { site } from "@/lib/site";
+import { site, whatsappLink } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/Icons";
 
-const PREFILL = encodeURIComponent(
-  "Hi Creed Culture Gym! I'd like to know more about memberships and book a free trial.",
+const CHAT_LINK = whatsappLink(
+  `Hi ${site.name}! I'd like to know more about memberships and book a free trial.`,
 );
 
 /**
@@ -34,10 +34,10 @@ export default function WhatsAppButton() {
           className="fixed bottom-5 right-5 z-40 sm:bottom-7 sm:right-7"
         >
           <a
-            href={`${site.whatsapp.href}?text=${PREFILL}`}
+            href={CHAT_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Chat with Creed Culture Gym on WhatsApp"
+            aria-label={`Chat with ${site.name} on WhatsApp`}
             className="group relative grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_32px_-8px_rgba(37,211,102,0.7)] transition-transform duration-300 hover:scale-110 sm:h-16 sm:w-16"
           >
             {/* Radar pulse */}

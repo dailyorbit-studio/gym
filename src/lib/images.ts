@@ -1,6 +1,9 @@
 /**
  * Manifest of every gym photo in /public/images, with intrinsic dimensions so
  * next/image can reserve layout space without a round-trip.
+ *
+ * These are demo photos. Drop replacements into /public/images using the same
+ * filenames (and update the width/height here) to swap in a real gym's shots.
  */
 
 export type GalleryCategory = "interior" | "equipment" | "classes" | "community";
@@ -18,73 +21,41 @@ export const galleryImages: GymImage[] = [
   {
     src: "/images/gym-floor-wide.webp",
     width: 1728,
-    height: 1152,
-    alt: "Wide view of the Creed Culture Gym training floor with red steel trusses and rows of plate-loaded machines",
-    caption: "The main floor — 9000+ sq ft under red steel",
+    height: 876,
+    alt: "Wide view of the main training floor with rows of red plate-loaded machines",
+    caption: "The main floor",
     category: "interior",
   },
   {
     src: "/images/gym-machines-row.webp",
     width: 1728,
-    height: 1152,
-    alt: "Row of red plate-loaded strength machines at Creed Culture Gym Kandivali West",
+    height: 876,
+    alt: "Row of red plate-loaded strength machines on the gym floor",
     caption: "Plate-loaded strength row",
     category: "equipment",
   },
   {
     src: "/images/gym-dumbbell-racks.webp",
     width: 1728,
-    height: 1152,
-    alt: "Full dumbbell rack lined up beneath red racking at Creed Culture Gym",
+    height: 876,
+    alt: "Full dumbbell rack lined up beneath red racking",
     caption: "The full dumbbell range",
     category: "equipment",
   },
   {
     src: "/images/gym-cardio-zone.webp",
     width: 1728,
-    height: 1152,
-    alt: "Treadmills in front of a red industrial gear mural in the Creed Culture cardio zone",
+    height: 876,
+    alt: "Treadmills in front of a red industrial gear mural in the cardio zone",
     caption: "Cardio deck under the gear wall",
     category: "equipment",
   },
   {
     src: "/images/gym-pro-shop.webp",
     width: 1728,
-    height: 1286,
-    alt: "Backlit supplement and apparel display wall at Creed Culture Gym",
+    height: 952,
+    alt: "Backlit supplement and apparel display wall",
     caption: "Supplements & apparel counter",
-    category: "interior",
-  },
-  {
-    src: "/images/gym-branded-plate.webp",
-    width: 1728,
-    height: 1152,
-    alt: "Close-up of a Creed Culture Gym branded machine plate and weight pegs",
-    caption: "Branded, built to last",
-    category: "equipment",
-  },
-  {
-    src: "/images/gym-members-logo-wall.webp",
-    width: 1440,
-    height: 1721,
-    alt: "Two members standing in front of the Creed Culture Gym logo wall",
-    caption: "Members at the logo wall",
-    category: "community",
-  },
-  {
-    src: "/images/gym-members-trio.webp",
-    width: 149,
-    height: 160,
-    alt: "Three Creed Culture Gym members posing together on the training floor",
-    caption: "Training partners",
-    category: "community",
-  },
-  {
-    src: "/images/gym-rig-floor.webp",
-    width: 141,
-    height: 118,
-    alt: "Red rig and machines along the Creed Culture Gym floor",
-    caption: "Red rig, black floor",
     category: "interior",
   },
   {
@@ -152,10 +123,6 @@ export const img = {
   dumbbells: "/images/gym-dumbbell-racks.webp",
   cardioZone: "/images/gym-cardio-zone.webp",
   proShop: "/images/gym-pro-shop.webp",
-  brandedPlate: "/images/gym-branded-plate.webp",
-  membersWall: "/images/gym-members-logo-wall.webp",
-  membersTrio: "/images/gym-members-trio.webp",
-  rigFloor: "/images/gym-rig-floor.webp",
   trainingLight: "/images/training-floor-light.webp",
   deadlift: "/images/athlete-deadlift.webp",
   treadmills: "/images/cardio-treadmills.webp",
@@ -163,5 +130,5 @@ export const img = {
   personalTraining: "/images/personal-training.webp",
   yoga: "/images/yoga-studio.webp",
   lockerRoom: "/images/locker-room.webp",
-  logo: "/images/logo.png",
+  logo: "/images/brand-logo.png",
 } as const;

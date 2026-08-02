@@ -3,7 +3,7 @@ import Image from "next/image";
 import MagneticButton from "@/components/MagneticButton";
 import SectionReveal from "@/components/SectionReveal";
 import { ArrowRightIcon, WhatsAppIcon } from "@/components/Icons";
-import { site } from "@/lib/site";
+import { areaLabel, site, whatsappLink } from "@/lib/site";
 import { img } from "@/lib/images";
 
 type CtaBandProps = {
@@ -16,16 +16,14 @@ type CtaBandProps = {
   primaryLabel?: string;
 };
 
-const TRIAL_MSG = encodeURIComponent(
-  "Hi Creed Culture Gym! I'd like to book a free trial session.",
-);
+const TRIAL_LINK = whatsappLink(`Hi ${site.name}! I'd like to book a free trial session.`);
 
 /** Full-bleed closing call-to-action used at the foot of most pages. */
 export default function CtaBand({
   eyebrow = "Your first session is free",
   title: heading,
   accent,
-  body = "Walk in, take the tour, train on the floor. Then decide. No card required, no pressure — just 9000+ sq ft waiting for you.",
+  body = `Walk in, take the tour, train on the floor. Then decide. No card required, no pressure — just ${areaLabel} waiting for you.`,
   image = img.deadlift,
   primaryHref = "/pricing",
   primaryLabel = "See Membership Plans",
@@ -47,20 +45,20 @@ export default function CtaBand({
       <div aria-hidden className="absolute inset-0 -z-10 hazard opacity-60" />
 
       {/* Red edge rules */}
-      <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-creed/70" />
-      <span aria-hidden className="absolute inset-x-0 bottom-0 h-0.5 bg-creed/70" />
+      <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 bg-brand/70" />
+      <span aria-hidden className="absolute inset-x-0 bottom-0 h-0.5 bg-brand/70" />
 
-      <div className="container-creed relative text-center">
+      <div className="container-brand relative text-center">
         <SectionReveal>
-          <p className="mb-5 flex items-center justify-center gap-3 font-heading text-xs font-semibold uppercase tracking-[0.32em] text-creed">
-            <span aria-hidden className="h-px w-8 bg-creed" />
+          <p className="mb-5 flex items-center justify-center gap-3 font-heading text-xs font-semibold uppercase tracking-[0.32em] text-brand">
+            <span aria-hidden className="h-px w-8 bg-brand" />
             {eyebrow}
-            <span aria-hidden className="h-px w-8 bg-creed" />
+            <span aria-hidden className="h-px w-8 bg-brand" />
           </p>
 
           <h2 className="mx-auto max-w-4xl text-[clamp(2.4rem,7vw,5rem)] leading-[0.9]">
             {heading}
-            {accent && <span className="text-creed"> {accent}</span>}
+            {accent && <span className="text-brand"> {accent}</span>}
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
@@ -73,7 +71,7 @@ export default function CtaBand({
               <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </MagneticButton>
             <MagneticButton
-              href={`${site.whatsapp.href}?text=${TRIAL_MSG}`}
+              href={TRIAL_LINK}
               variant="outline"
               className="px-6 py-3.5 sm:px-9 sm:py-4"
             >

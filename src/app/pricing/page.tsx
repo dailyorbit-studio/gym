@@ -8,25 +8,23 @@ import SectionHeading from "@/components/SectionHeading";
 import SectionReveal from "@/components/SectionReveal";
 import { CheckIcon } from "@/components/Icons";
 import { img } from "@/lib/images";
-import { faqs, plans, site } from "@/lib/site";
+import { areaLabel, faqs, plans, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Gym Membership Kandivali | Plans from ₹16,500 / 6 Months",
-  description:
-    "Transparent gym membership pricing in Kandivali West — monthly, quarterly and 6-month plans starting at ₹16,500. No joining fee, no hidden charges. Free trial available.",
+  title: "Gym Membership Plans | From ₹16,500 / 6 Months",
+  description: `Transparent gym membership pricing at ${site.name} — monthly, quarterly and 6-month plans starting at ₹16,500. No joining fee, no hidden charges. Free trial available.`,
   alternates: { canonical: "/pricing" },
   openGraph: {
-    title: "Gym Membership in Kandivali | Creed Culture Gym Pricing",
-    description:
-      "Monthly, quarterly and 6-month memberships at Kandivali West's 9000+ sq ft gym. 6-month plan from ₹16,500. No joining fee.",
+    title: `Gym Membership | ${site.name} Pricing`,
+    description: `Monthly, quarterly and 6-month memberships at our ${areaLabel} gym. 6-month plan from ₹16,500. No joining fee.`,
     url: `${site.url}/pricing`,
-    images: [{ url: "/images/gym-dumbbell-racks.webp", width: 1728, height: 1152 }],
+    images: [{ url: "/images/gym-dumbbell-racks.webp", width: 1728, height: 876 }],
   },
 };
 
 /** Every plan includes these — stated once so the cards stay scannable. */
 const included = [
-  "Full access to the 9000+ sq ft floor",
+  `Full access to the ${areaLabel} floor`,
   "Strength, cardio and functional zones",
   "Air-conditioned training areas",
   "Change rooms, lockers and showers",
@@ -67,7 +65,7 @@ export default function PricingPage() {
       {/* Plans                                                             */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed">
+        <div className="container-brand">
           <SectionHeading
             align="center"
             eyebrow="Choose your plan"
@@ -93,7 +91,7 @@ export default function PricingPage() {
       {/* Included in every plan                                            */}
       {/* ================================================================= */}
       <section className="border-y border-white/10 bg-coal py-14 sm:py-16 lg:py-24">
-        <div className="container-creed grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
+        <div className="container-brand grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
           <SectionHeading
             eyebrow="Always included"
             title="Every plan"
@@ -107,7 +105,7 @@ export default function PricingPage() {
           >
             {included.map((item) => (
               <div key={item} className="flex items-start gap-3">
-                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-creed/15 text-creed">
+                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand/15 text-brand">
                   <CheckIcon className="h-3.5 w-3.5" />
                 </span>
                 <span className="text-sm leading-relaxed text-white/65">{item}</span>
@@ -121,7 +119,7 @@ export default function PricingPage() {
       {/* FAQs                                                              */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+        <div className="container-brand grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
               eyebrow="Questions"

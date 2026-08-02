@@ -40,14 +40,15 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   keywords: [
-    "gym in Kandivali West",
-    "best gym Kandivali",
-    "Creed Culture Gym",
-    "fitness centre Mumbai",
-    "CrossFit Kandivali",
-    "personal trainer Kandivali West",
-    "Zumba classes Kandivali",
-    "gym membership Kandivali",
+    "gym near me",
+    "best gym in the city",
+    `${site.name}`,
+    "fitness centre",
+    "CrossFit gym",
+    "personal trainer",
+    "Zumba classes",
+    "gym membership",
+    "strength training",
   ],
   authors: [{ name: site.name }],
   creator: site.name,
@@ -62,8 +63,8 @@ export const metadata: Metadata = {
       {
         url: "/images/gym-floor-wide.webp",
         width: 1728,
-        height: 1152,
-        alt: "The 9000+ sq ft training floor at Creed Culture Gym, Kandivali West",
+        height: 876,
+        alt: `The training floor at ${site.name}`,
       },
     ],
   },
@@ -109,7 +110,7 @@ export default function RootLayout({
 
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:bg-creed focus:px-4 focus:py-2 focus:font-heading focus:text-sm focus:uppercase focus:tracking-widest"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:bg-brand focus:px-4 focus:py-2 focus:font-heading focus:text-sm focus:uppercase focus:tracking-widest"
         >
           Skip to content
         </a>

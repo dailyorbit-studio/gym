@@ -1,76 +1,110 @@
 /**
- * Single source of truth for every piece of business data on the site.
- * Anything a staff member might want to change lives here, not in JSX.
+ * ============================================================================
+ *  ⚙️  EDIT THIS FILE TO RE-BRAND THE WHOLE SITE
+ * ============================================================================
+ *  Everything a gym owner would want to change lives here — name, address,
+ *  phone numbers, socials, pricing, programs, reviews. Change the values in
+ *  this one file and the entire website updates: navbar, footer, page copy,
+ *  SEO metadata, WhatsApp links and the Google structured data.
+ *
+ *  All values below are DEMO PLACEHOLDERS ("Forge Fitness", "Metro City",
+ *  dummy phone numbers, sample reviews). Swap them for the real business.
+ * ============================================================================
  */
 
 export const site = {
-  name: "Creed Culture Gym",
-  shortName: "Creed Culture",
-  tagline: "Masterpiece of Fitness in Kandivali",
-  url: "https://creedculturegym.com",
+  /* ---- Identity --------------------------------------------------------- */
+  name: "Forge Fitness",
+  tagline: "Where Strength Is Built",
+  url: "https://forgefitness.example.com", // ← replace with the live domain
   description:
-    "Creed Culture Gym is a 9000+ sq ft premium strength, CrossFit and cardio facility in Kandivali West, Mumbai. Rated 4.3★ by 440+ members. Open daily until 11 PM.",
+    "Forge Fitness is a 10,000 sq ft premium strength, CrossFit and cardio facility. Rated 4.8★ by 500+ members. Personal training, group classes and open floor daily until 11 PM.",
 
+  /**
+   * Brand lockup + campaign words. `wordmark` is the two-tone logo text
+   * (first word white, second word red); `hero` drives the big homepage
+   * headline and the intro animation ("Forge Your Strength").
+   */
+  brand: {
+    wordmark: { first: "FORGE", second: "FITNESS" },
+    caption: "Strength & Conditioning",
+    hero: { pre: "Forge Your", accent: "Strength" },
+  },
+
+  /* ---- Location (DEMO — replace with the real address) ------------------ */
   address: {
-    line1: "Government Industrial Estate, 105 ABC",
-    line2: "Hindustan Naka, Charkop Industrial Estate",
-    locality: "Kandivali West",
-    region: "Maharashtra",
-    city: "Mumbai",
-    postalCode: "400067",
+    line1: "123 Fitness Avenue",
+    line2: "Central Business District",
+    locality: "Downtown",
+    region: "State",
+    city: "Metro City",
+    postalCode: "100001",
     country: "IN",
   },
 
-  /** Approximate coordinates for Charkop Industrial Estate, Kandivali West. */
-  geo: { lat: 19.2135, lng: 72.8283 },
+  /** Map marker coordinates — used for the embedded map + directions link. */
+  geo: { lat: 19.076, lng: 72.8777 },
 
+  /* ---- Contact (DEMO numbers) ------------------------------------------ */
   phones: [
-    { label: "+91 93247 20086", tel: "+919324720086" },
-    { label: "+91 93721 61805", tel: "+919372161805" },
+    { label: "+91 98765 43210", tel: "+919876543210" },
+    { label: "+91 98765 43211", tel: "+919876543211" },
   ],
 
   whatsapp: {
-    number: "919324720086",
-    href: "https://wa.me/919324720086",
+    number: "919876543210",
+    href: "https://wa.me/919876543210",
   },
 
   socials: {
     instagram: {
-      handle: "@creedculturegym",
-      href: "https://www.instagram.com/creedculturegym/",
-      followers: "6K+",
+      handle: "@forgefitness",
+      href: "https://www.instagram.com/",
+      followers: "5K+",
     },
     facebook: {
-      handle: "Creed Culture GYM",
-      href: "https://www.facebook.com/people/Creed-Culture-GYM/",
+      handle: "Forge Fitness",
+      href: "https://www.facebook.com/",
     },
   },
 
   hours: {
     summary: "Open daily until 11:00 PM",
-    detail: "Mon – Sun · Early morning to 11:00 PM",
+    detail: "Mon – Sun · 5:00 AM to 11:00 PM",
     /** schema.org openingHours shorthand */
     schema: ["Mo-Su 05:00-23:00"],
   },
 
   facility: {
-    area: "9000+",
+    area: "10,000",
     areaLabel: "Sq Ft of Training Floor",
   },
 
   rating: {
-    value: 4.3,
-    count: 440,
-    reviews: 427,
+    value: 4.8,
+    count: 500,
+    reviews: 480,
   },
 
+  /**
+   * Coordinate-based embed + directions link so the demo map always renders
+   * cleanly. When you have the real listing, swap these for a place-based
+   * Google Maps embed / share URL.
+   */
   mapsEmbed:
-    "https://www.google.com/maps?q=Creed+Culture+Gym,+Government+Industrial+Estate,+105+ABC,+Hindustan+Naka,+Charkop+Industrial+Estate,+Kandivali+West,+Mumbai,+Maharashtra+400067&output=embed",
-  mapsLink:
-    "https://www.google.com/maps/search/?api=1&query=Creed+Culture+Gym+Kandivali+West+Mumbai",
+    "https://maps.google.com/maps?q=19.0760,72.8777&z=15&output=embed",
+  mapsLink: "https://www.google.com/maps/dir/?api=1&destination=19.0760,72.8777",
 } as const;
 
 export const fullAddress = `${site.address.line1}, ${site.address.line2}, ${site.address.locality}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`;
+
+/** "10,000 sq ft" — reused across body copy. */
+export const areaLabel = `${site.facility.area} sq ft`;
+
+/** Build a WhatsApp deep-link with a pre-filled, branded message. */
+export function whatsappLink(message: string): string {
+  return `${site.whatsapp.href}?text=${encodeURIComponent(message)}`;
+}
 
 /** Primary navigation — shared by the navbar, mobile menu and footer. */
 export const navLinks = [
@@ -102,7 +136,7 @@ export const programs: Program[] = [
     title: "Strength & Weight Training",
     short: "Plate-loaded power, free weights and a rack for every lift.",
     description:
-      "The heart of Creed Culture. Rows of plate-loaded machines, a full dumbbell range and dedicated rack space so you never wait to lift. Built for hypertrophy, powerlifting and everything between.",
+      "The heart of the gym. Rows of plate-loaded machines, a full dumbbell range and dedicated rack space so you never wait to lift. Built for hypertrophy, powerlifting and everything between.",
     image: "/images/gym-dumbbell-racks.webp",
     icon: "dumbbell",
     highlights: ["Full dumbbell range", "Plate-loaded machines", "Deadlift & squat racks"],
@@ -120,7 +154,7 @@ export const programs: Program[] = [
   {
     slug: "cardio",
     title: "Cardio",
-    short: "Treadmills, bikes and climbers under the red gear wall.",
+    short: "Treadmills, bikes and climbers on a dedicated cardio deck.",
     description:
       "A dedicated cardio deck with treadmills, cross-trainers and cycles. Steady-state or intervals — chase the number, then go lift.",
     image: "/images/gym-cardio-zone.webp",
@@ -160,7 +194,7 @@ export const programs: Program[] = [
   {
     slug: "online-classes",
     title: "Online Classes",
-    short: "Train with Creed coaches from anywhere.",
+    short: "Train with our coaches from anywhere.",
     description:
       "Travelling or stuck at home? Join live sessions and follow coach-led programming remotely, so a missed week never turns into a missed month.",
     image: "/images/training-floor-light.webp",
@@ -241,7 +275,7 @@ export const faqs = [
   },
   {
     q: "Do you offer a free trial?",
-    a: "Absolutely. Walk in or book a slot on WhatsApp and get a complimentary trial session with a full tour of the 9000+ sq ft floor. No card, no pressure — come train and see if Creed Culture is your kind of room.",
+    a: "Absolutely. Walk in or book a slot on WhatsApp and get a complimentary trial session with a full tour of the floor. No card, no pressure — come train and see if this is your kind of room.",
   },
   {
     q: "How do personal training add-ons work?",
@@ -249,7 +283,7 @@ export const faqs = [
   },
   {
     q: "What are your timings?",
-    a: "We are open every single day and run right through until 11:00 PM, so late finishes at work are never an excuse. Call us on +91 93247 20086 for the current morning opening time.",
+    a: "We are open every single day and run right through until 11:00 PM, so late finishes at work are never an excuse. Call the front desk for the current morning opening time.",
   },
   {
     q: "Is there a joining fee or hidden charge?",
@@ -270,7 +304,7 @@ export const testimonials = [
     name: "Rohit S.",
     role: "Member since 2023",
     quote:
-      "Easily the best equipped gym in Kandivali. The plate-loaded section alone is worth the membership, and the floor is big enough that you are never waiting for a bench at 8 PM.",
+      "Easily the best equipped gym I've trained at. The plate-loaded section alone is worth the membership, and the floor is big enough that you're never waiting for a bench at 8 PM.",
     rating: 5,
   },
   {
@@ -298,7 +332,7 @@ export const testimonials = [
     name: "Faizan A.",
     role: "CrossFit",
     quote:
-      "9000 sq ft and it never feels crowded. Coaches push you without being obnoxious about it. Best value for money you will find anywhere in the western suburbs.",
+      "A massive floor and it never feels crowded. Coaches push you without being obnoxious about it. Best value for money you will find anywhere.",
     rating: 5,
   },
 ];
@@ -317,7 +351,7 @@ export const gymJsonLd = {
   description: site.description,
   url: site.url,
   image: `${site.url}/images/gym-floor-wide.webp`,
-  logo: `${site.url}/images/logo.png`,
+  logo: `${site.url}/images/brand-logo.png`,
   telephone: site.phones.map((p) => p.tel),
   priceRange: "₹₹",
   currenciesAccepted: "INR",

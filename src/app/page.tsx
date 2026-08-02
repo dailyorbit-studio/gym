@@ -20,27 +20,26 @@ import {
   UsersIcon,
 } from "@/components/Icons";
 import { img } from "@/lib/images";
-import { plans, programs, site } from "@/lib/site";
+import { areaLabel, plans, programs, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Best Gym in Kandivali West Mumbai | 9000+ Sq Ft",
-  description:
-    "Creed Culture Gym is the best-equipped gym in Kandivali West, Mumbai — 9000+ sq ft of strength, CrossFit, cardio, Zumba and yoga. 4.3★ from 440+ members. Open daily until 11 PM. Book a free trial.",
+  title: `${site.name} | Premium Gym, Strength & CrossFit`,
+  description: site.description,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Creed Culture Gym | Best Gym in Kandivali West, Mumbai",
+    title: `${site.name} | ${site.tagline}`,
     description:
-      "9000+ sq ft of premium strength, CrossFit and cardio equipment in Kandivali West. Rated 4.3★ by 440+ members. Book your free trial today.",
+      `${areaLabel} of premium strength, CrossFit and cardio equipment. Rated ${site.rating.value}★ by ${site.rating.count}+ members. Book your free trial today.`,
     url: site.url,
-    images: [{ url: "/images/gym-floor-wide.webp", width: 1728, height: 1152 }],
+    images: [{ url: "/images/gym-floor-wide.webp", width: 1728, height: 876 }],
   },
 };
 
-/** "Why Creed Culture" teaser blocks. */
+/** "Why choose us" teaser blocks. */
 const pillars = [
   {
     icon: DumbbellIcon,
-    title: "9000+ Sq Ft Floor",
+    title: `${site.facility.area} Sq Ft Floor`,
     body: "Plate-loaded machines, a full dumbbell range and dedicated rack space. You never queue for a bench, even at peak hour.",
   },
   {
@@ -74,37 +73,37 @@ export default function HomePage() {
         aria-label="Gym at a glance"
         className="relative border-y border-white/10 bg-coal"
       >
-        <div className="container-creed py-10 sm:py-12 lg:py-16">
+        <div className="container-brand py-10 sm:py-12 lg:py-16">
           {/* `gap-px` over a light background draws the dividers, so they stay
               correct whether the grid is two columns or four. */}
           <div className="grid grid-cols-2 gap-px bg-white/10 lg:grid-cols-4">
-            <StatCounter value={9000} suffix="+" label="Sq Ft of Floor" index={0} />
-            <StatCounter value={440} suffix="+" label="Happy Members" index={1} />
-            <StatCounter value={4.3} decimals={1} suffix="★" label="Google Rating" index={2} />
+            <StatCounter value={10000} suffix="+" label="Sq Ft of Floor" index={0} />
+            <StatCounter value={500} suffix="+" label="Happy Members" index={1} />
+            <StatCounter value={4.8} decimals={1} suffix="★" label="Google Rating" index={2} />
             <StatCounter value={7} suffix="+" label="Programs" index={3} />
           </div>
         </div>
       </section>
 
       {/* ================================================================= */}
-      {/* Why Creed Culture                                                 */}
+      {/* Why choose us                                                     */}
       {/* ================================================================= */}
       <section id="why" className="relative overflow-hidden py-16 sm:py-20 lg:py-32">
-        <div className="container-creed">
+        <div className="container-brand">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-20">
             {/* Copy */}
             <div>
               <SectionHeading
-                eyebrow="Why Creed Culture"
+                eyebrow={`Why ${site.name}`}
                 title="Not another"
                 accent="neighbourhood gym"
-                subtitle="Creed Culture was built as a masterpiece of fitness in Kandivali — a serious training environment with the equipment, coaching and hours that let ordinary people build extraordinary bodies."
+                subtitle="This is a serious training environment — the equipment, coaching and hours that let ordinary people build extraordinary bodies."
               />
 
               <SectionReveal className="mt-12 grid gap-8 sm:grid-cols-2" stagger={0.1}>
                 {pillars.map((pillar) => (
                   <div key={pillar.title} className="group">
-                    <span className="mb-4 grid h-12 w-12 place-items-center border border-white/15 text-creed transition-all duration-400 group-hover:border-creed group-hover:bg-creed group-hover:text-white">
+                    <span className="mb-4 grid h-12 w-12 place-items-center border border-white/15 text-brand transition-all duration-400 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                       <pillar.icon className="h-5 w-5" />
                     </span>
                     <h3 className="text-xl text-white">{pillar.title}</h3>
@@ -130,7 +129,7 @@ export default function HomePage() {
                   <div className="relative aspect-3/4 overflow-hidden border border-white/10">
                     <Image
                       src={img.machinesRow}
-                      alt="Row of red plate-loaded machines on the Creed Culture training floor"
+                      alt="Row of red plate-loaded machines on the training floor"
                       fill
                       sizes="(max-width: 1024px) 45vw, 26vw"
                       className="object-cover transition-transform duration-700 hover:scale-105"
@@ -138,8 +137,8 @@ export default function HomePage() {
                   </div>
                   <div className="relative aspect-square overflow-hidden border border-white/10">
                     <Image
-                      src={img.brandedPlate}
-                      alt="Creed Culture branded machine plate detail"
+                      src={img.trainingLight}
+                      alt="Morning light across the open training floor"
                       fill
                       sizes="(max-width: 1024px) 45vw, 26vw"
                       className="object-cover transition-transform duration-700 hover:scale-105"
@@ -169,8 +168,10 @@ export default function HomePage() {
               </div>
 
               {/* Floating stat badge */}
-              <div className="absolute -bottom-6 left-4 border border-creed bg-ink px-6 py-4 shadow-[0_20px_50px_-18px_rgba(225,29,42,0.8)] sm:left-1/2 sm:-translate-x-1/2">
-                <p className="font-display text-3xl leading-none text-creed">9000+</p>
+              <div className="absolute -bottom-6 left-4 border border-brand bg-ink px-6 py-4 shadow-[0_20px_50px_-18px_rgba(225,29,42,0.8)] sm:left-1/2 sm:-translate-x-1/2">
+                <p className="font-display text-3xl leading-none text-brand">
+                  {site.facility.area}+
+                </p>
                 <p className="mt-1 font-heading text-[10px] uppercase tracking-[0.24em] text-white/50">
                   Square Feet
                 </p>
@@ -188,7 +189,7 @@ export default function HomePage() {
       {/* Featured programs                                                 */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed">
+        <div className="container-brand">
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               eyebrow="Train your way"
@@ -218,7 +219,7 @@ export default function HomePage() {
       {/* ================================================================= */}
       <section className="relative overflow-hidden border-y border-white/10 bg-coal py-16 sm:py-20 lg:py-32">
         <div aria-hidden className="pointer-events-none absolute inset-0 hazard opacity-70" />
-        <div className="container-creed relative">
+        <div className="container-brand relative">
           <SectionHeading
             align="center"
             eyebrow="Membership"
@@ -236,13 +237,13 @@ export default function HomePage() {
           <SectionReveal delay={0.2} className="mt-14 text-center">
             <Link
               href="/pricing"
-              className="group inline-flex items-center gap-2 font-heading text-xs font-semibold uppercase tracking-[0.24em] text-white/60 transition-colors hover:text-creed"
+              className="group inline-flex items-center gap-2 font-heading text-xs font-semibold uppercase tracking-[0.24em] text-white/60 transition-colors hover:text-brand"
             >
               <span className="relative">
                 Compare plans &amp; read the FAQs
                 <span
                   aria-hidden
-                  className="absolute -bottom-1 left-0 h-px w-0 bg-creed transition-all duration-400 group-hover:w-full"
+                  className="absolute -bottom-1 left-0 h-px w-0 bg-brand transition-all duration-400 group-hover:w-full"
                 />
               </span>
               <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -255,7 +256,7 @@ export default function HomePage() {
       {/* Testimonials                                                      */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
+        <div className="container-brand grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
           <div>
             <SectionHeading
               eyebrow="Member stories"
@@ -267,8 +268,8 @@ export default function HomePage() {
             <SectionReveal delay={0.18} className="mt-10">
               <div className="relative aspect-4/5 max-w-sm overflow-hidden border border-white/10">
                 <Image
-                  src={img.membersWall}
-                  alt="Members standing in front of the Creed Culture Gym logo wall"
+                  src={img.groupClass}
+                  alt="A packed group class training together on the floor"
                   fill
                   // The container is capped at max-w-sm (384px), so anything
                   // wider than that is wasted bytes — and 80vw was under-

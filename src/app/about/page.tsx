@@ -19,19 +19,17 @@ import {
   UsersIcon,
 } from "@/components/Icons";
 import { img } from "@/lib/images";
-import { site } from "@/lib/site";
+import { areaLabel, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Us | The Story Behind Kandivali's 9000 Sq Ft Gym",
-  description:
-    "Creed Culture Gym was built as a masterpiece of fitness in Kandivali West — 9000+ sq ft of premium equipment, certified coaches and a community of 440+ members. This is our story.",
+  title: `About Us | The Story Behind ${site.name}`,
+  description: `${site.name} was built as a masterpiece of fitness — ${areaLabel} of premium equipment, certified coaches and a community of ${site.rating.count}+ members. This is our story.`,
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Creed Culture Gym | Kandivali West, Mumbai",
-    description:
-      "The story behind Kandivali's 9000+ sq ft strength and conditioning facility — our values, our coaches, and the community we've built.",
+    title: `About ${site.name}`,
+    description: `The story behind our ${areaLabel} strength and conditioning facility — our values, our coaches, and the community we've built.`,
     url: `${site.url}/about`,
-    images: [{ url: "/images/gym-machines-row.webp", width: 1728, height: 1152 }],
+    images: [{ url: "/images/gym-machines-row.webp", width: 1728, height: 876 }],
   },
 };
 
@@ -72,7 +70,7 @@ const coaching = [
   {
     icon: HeartIcon,
     title: "Fat Loss & Cardio",
-    body: "Heart-rate-based conditioning plans paired with practical nutrition guidance you can actually keep to in Mumbai.",
+    body: "Heart-rate-based conditioning plans paired with practical nutrition guidance you can actually keep to.",
   },
   {
     icon: MusicIcon,
@@ -99,16 +97,16 @@ export default function AboutPage() {
         eyebrow="Since day one"
         title="A masterpiece of"
         accent="fitness"
-        subtitle="9000+ square feet in Kandivali West, built for people who are done making excuses."
+        subtitle={`${areaLabel} of training floor, built for people who are done making excuses.`}
         image={img.machinesRow}
-        imageAlt="Rows of red plate-loaded strength machines at Creed Culture Gym"
+        imageAlt="Rows of red plate-loaded strength machines on the gym floor"
       />
 
       {/* ================================================================= */}
       {/* Story                                                             */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
+        <div className="container-brand grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
           <SectionReveal direction="right">
             <div className="relative">
               <div className="relative aspect-4/5 overflow-hidden border border-white/10">
@@ -124,8 +122,8 @@ export default function AboutPage() {
               <div className="absolute -bottom-10 -right-4 hidden w-48 overflow-hidden border-4 border-ink sm:block lg:-right-10 lg:w-60">
                 <div className="relative aspect-square">
                   <Image
-                    src={img.brandedPlate}
-                    alt="Close-up of a Creed Culture branded machine plate"
+                    src={img.lockerRoom}
+                    alt="Premium locker room with timber lockers"
                     fill
                     sizes="240px"
                     className="object-cover"
@@ -143,17 +141,16 @@ export default function AboutPage() {
             />
             <SectionReveal delay={0.1} className="mt-7 space-y-5 text-base leading-relaxed text-white/60">
               <p>
-                Creed Culture started with a simple frustration: Kandivali had plenty of
+                {site.name} started with a simple frustration: the city had plenty of
                 gyms, but almost none of them were built for people who take training
                 seriously. Crowded floors. Waiting twenty minutes for a bench. Machines
                 that had been broken since last winter.
               </p>
               <p>
                 So we built the opposite. Over{" "}
-                <strong className="font-semibold text-white">9000 square feet</strong> of
-                floor in the Charkop Industrial Estate — exposed red steel, black rubber
-                flooring, and enough commercial-grade equipment that peak hour feels like
-                any other hour.
+                <strong className="font-semibold text-white">{areaLabel}</strong> of floor
+                — exposed red steel, black rubber flooring, and enough commercial-grade
+                equipment that peak hour feels like any other hour.
               </p>
               <p>
                 Today more than{" "}
@@ -167,7 +164,7 @@ export default function AboutPage() {
                 average {site.rating.value} stars. But the thing we are proudest of is
                 simpler than any number: people keep coming back.
               </p>
-              <p className="border-l-2 border-creed pl-5 font-heading text-lg uppercase leading-snug tracking-wide text-white">
+              <p className="border-l-2 border-brand pl-5 font-heading text-lg uppercase leading-snug tracking-wide text-white">
                 &ldquo;{site.tagline}&rdquo; is not a slogan we wrote for a poster. It is
                 the standard we hold the floor to every single day.
               </p>
@@ -180,14 +177,14 @@ export default function AboutPage() {
       {/* Stats                                                             */}
       {/* ================================================================= */}
       <section
-        aria-label="Creed Culture in numbers"
+        aria-label={`${site.name} in numbers`}
         className="border-y border-white/10 bg-coal"
       >
-        <div className="container-creed py-10 sm:py-12 lg:py-16">
+        <div className="container-brand py-10 sm:py-12 lg:py-16">
           <div className="grid grid-cols-2 gap-px bg-white/10 lg:grid-cols-4">
-            <StatCounter value={9000} suffix="+" label="Sq Ft of Floor" index={0} />
-            <StatCounter value={440} suffix="+" label="Active Members" index={1} />
-            <StatCounter value={427} label="Google Reviews" index={2} />
+            <StatCounter value={10000} suffix="+" label="Sq Ft of Floor" index={0} />
+            <StatCounter value={500} suffix="+" label="Active Members" index={1} />
+            <StatCounter value={480} label="Google Reviews" index={2} />
             <StatCounter value={7} suffix="+" label="Programs Offered" index={3} />
           </div>
         </div>
@@ -197,12 +194,12 @@ export default function AboutPage() {
       {/* Values                                                            */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed">
+        <div className="container-brand">
           <SectionHeading
             align="center"
             eyebrow="What we stand for"
             title="Our"
-            accent="creed"
+            accent="code"
             subtitle="Four principles that decide everything — from which machine we buy next to how we greet someone on their first day."
           />
 
@@ -213,10 +210,10 @@ export default function AboutPage() {
                 delay={i * 0.08}
                 className="group relative bg-ink p-8 transition-colors duration-500 hover:bg-char lg:p-9"
               >
-                <span className="mb-6 grid h-14 w-14 place-items-center border border-white/15 text-creed transition-all duration-400 group-hover:border-creed group-hover:bg-creed group-hover:text-white">
+                <span className="mb-6 grid h-14 w-14 place-items-center border border-white/15 text-brand transition-all duration-400 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                   <value.icon className="h-6 w-6" />
                 </span>
-                <p className="font-heading text-6xl leading-none text-white/[0.06] transition-colors duration-500 group-hover:text-creed/20">
+                <p className="font-heading text-6xl leading-none text-white/[0.06] transition-colors duration-500 group-hover:text-brand/20">
                   0{i + 1}
                 </p>
                 <h3 className="mt-4 text-2xl text-white">{value.title}</h3>
@@ -227,13 +224,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Marquee tone="red" items={["Forge Your Creed", "Kandivali West", "Open Till 11 PM"]} />
+      <Marquee
+        tone="red"
+        items={[`${site.brand.hero.pre} ${site.brand.hero.accent}`, site.name, "Open Till 11 PM"]}
+      />
 
       {/* ================================================================= */}
       {/* Coaching                                                          */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div className="container-brand grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
               eyebrow="The coaching floor"
@@ -246,7 +246,7 @@ export default function AboutPage() {
               <div className="relative aspect-4/5 max-w-md overflow-hidden border border-white/10">
                 <Image
                   src={img.personalTraining}
-                  alt="A Creed Culture coach guiding a member through a kettlebell squat"
+                  alt="A coach guiding a member through a kettlebell squat"
                   fill
                   sizes="(max-width: 1024px) 90vw, 40vw"
                   className="object-cover"
@@ -265,7 +265,7 @@ export default function AboutPage() {
                 key={area.title}
                 className="group h-full bg-ink p-7 transition-colors duration-500 hover:bg-char"
               >
-                <span className="mb-5 inline-grid h-11 w-11 place-items-center border border-white/15 text-creed transition-all duration-400 group-hover:border-creed group-hover:bg-creed group-hover:text-white">
+                <span className="mb-5 inline-grid h-11 w-11 place-items-center border border-white/15 text-brand transition-all duration-400 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                   <area.icon className="h-5 w-5" />
                 </span>
                 <h3 className="text-xl text-white">{area.title}</h3>
@@ -280,12 +280,12 @@ export default function AboutPage() {
       {/* Facility split                                                    */}
       {/* ================================================================= */}
       <section className="border-t border-white/10 bg-coal py-16 sm:py-20 lg:py-32">
-        <div className="container-creed">
+        <div className="container-brand">
           <SectionHeading
             eyebrow="Inside the building"
             title="More than a"
             accent="weights room"
-            subtitle="Air-conditioned floors, a premium change room, and an in-house counter for supplements and Creed apparel."
+            subtitle="Air-conditioned floors, a premium change room, and an in-house counter for supplements and branded apparel."
           />
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -298,7 +298,7 @@ export default function AboutPage() {
               {
                 src: img.proShop,
                 title: "Supplements & Apparel",
-                body: "Genuine stock at the counter, plus Creed Culture merchandise.",
+                body: "Genuine stock at the counter, plus branded merchandise.",
               },
               {
                 src: img.cardioZone,
@@ -309,7 +309,7 @@ export default function AboutPage() {
               <SectionReveal
                 key={item.title}
                 delay={i * 0.1}
-                className="group overflow-hidden border border-white/10 bg-char transition-colors duration-400 hover:border-creed/50"
+                className="group overflow-hidden border border-white/10 bg-char transition-colors duration-400 hover:border-brand/50"
               >
                 <div className="relative aspect-4/3 overflow-hidden">
                   <Image
@@ -321,7 +321,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl text-white transition-colors group-hover:text-creed">
+                  <h3 className="text-xl text-white transition-colors group-hover:text-brand">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-white/55">{item.body}</p>
@@ -336,7 +336,7 @@ export default function AboutPage() {
         eyebrow="Come see it yourself"
         title="Take the tour,"
         accent="then decide"
-        body="Book a free trial session and we'll walk you through all 9000+ square feet — the floor, the coaches, the community. Bring your shoes."
+        body={`Book a free trial session and we'll walk you through all ${areaLabel} — the floor, the coaches, the community. Bring your shoes.`}
         image={img.floorWide}
       />
     </>

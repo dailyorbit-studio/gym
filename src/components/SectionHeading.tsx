@@ -31,13 +31,13 @@ export default function SectionHeading({
     >
       {eyebrow && (
         <p
-          className={`mb-3 flex items-center gap-2.5 font-heading text-[10px] font-semibold uppercase tracking-[0.24em] text-creed sm:mb-4 sm:gap-3 sm:text-xs sm:tracking-[0.32em] ${
+          className={`mb-3 flex items-center gap-2.5 font-heading text-[10px] font-semibold uppercase tracking-[0.24em] text-brand sm:mb-4 sm:gap-3 sm:text-xs sm:tracking-[0.32em] ${
             centered ? "justify-center" : ""
           }`}
         >
-          <span aria-hidden className="h-px w-6 shrink-0 bg-creed sm:w-8" />
+          <span aria-hidden className="h-px w-6 shrink-0 bg-brand sm:w-8" />
           {eyebrow}
-          {centered && <span aria-hidden className="h-px w-6 shrink-0 bg-creed sm:w-8" />}
+          {centered && <span aria-hidden className="h-px w-6 shrink-0 bg-brand sm:w-8" />}
         </p>
       )}
 
@@ -45,7 +45,7 @@ export default function SectionHeading({
           or looks undersized on a 1440px one. */}
       <h2 className="text-[clamp(2rem,6.5vw,3.75rem)] leading-[0.92]">
         {title}
-        {accent && <span className="text-creed"> {accent}</span>}
+        {accent && <span className="text-brand"> {accent}</span>}
       </h2>
 
       {subtitle && (

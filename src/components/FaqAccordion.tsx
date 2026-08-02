@@ -25,7 +25,7 @@ export default function FaqAccordion() {
               >
                 <span
                   className={`font-heading text-base font-medium uppercase tracking-wide transition-colors duration-300 sm:text-lg ${
-                    isOpen ? "text-creed" : "text-white group-hover:text-creed"
+                    isOpen ? "text-brand" : "text-white group-hover:text-brand"
                   }`}
                 >
                   {faq.q}
@@ -33,8 +33,8 @@ export default function FaqAccordion() {
                 <span
                   className={`grid h-9 w-9 shrink-0 place-items-center border transition-all duration-300 ${
                     isOpen
-                      ? "rotate-180 border-creed bg-creed text-white"
-                      : "border-white/20 text-white/60 group-hover:border-creed group-hover:text-creed"
+                      ? "rotate-180 border-brand bg-brand text-white"
+                      : "border-white/20 text-white/60 group-hover:border-brand group-hover:text-brand"
                   }`}
                 >
                   <ChevronDownIcon className="h-4 w-4" />
@@ -52,7 +52,7 @@ export default function FaqAccordion() {
                   transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="border-l-2 border-creed/50 pb-7 pl-5 text-sm leading-relaxed text-white/60 sm:text-base">
+                  <p className="border-l-2 border-brand/50 pb-7 pl-5 text-sm leading-relaxed text-white/60 sm:text-base">
                     {faq.a}
                   </p>
                 </motion.div>

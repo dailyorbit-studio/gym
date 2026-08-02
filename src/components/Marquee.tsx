@@ -15,7 +15,7 @@ export default function Marquee({ items, tone = "dark" }: MarqueeProps) {
     <div
       aria-hidden
       className={`relative flex overflow-hidden border-y py-3 sm:py-4 ${
-        tone === "red" ? "border-creed-dark bg-creed" : "border-white/10 bg-coal"
+        tone === "red" ? "border-brand-dark bg-brand" : "border-white/10 bg-coal"
       }`}
     >
       <div className="flex w-max animate-marquee items-center gap-6 pr-6 sm:gap-10 sm:pr-10">
@@ -29,7 +29,7 @@ export default function Marquee({ items, tone = "dark" }: MarqueeProps) {
               {item}
             </span>
             <span
-              className={`h-2 w-2 rotate-45 ${tone === "red" ? "bg-white/70" : "bg-creed"}`}
+              className={`h-2 w-2 rotate-45 ${tone === "red" ? "bg-white/70" : "bg-brand"}`}
             />
           </span>
         ))}

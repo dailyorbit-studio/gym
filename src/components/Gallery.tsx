@@ -94,7 +94,7 @@ export default function Gallery({ limit, showFilters = true }: GalleryProps) {
                     transition={
                       reduce ? { duration: 0 } : { type: "spring", stiffness: 360, damping: 30 }
                     }
-                    className="absolute inset-0 -z-10 bg-creed"
+                    className="absolute inset-0 -z-10 bg-brand"
                   />
                 )}
                 {!selected && (
@@ -124,7 +124,7 @@ export default function Gallery({ limit, showFilters = true }: GalleryProps) {
               transition={{ duration: 0.5, delay: (i % 6) * 0.05, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => setActive(i)}
               aria-label={`View larger: ${image.caption}`}
-              className="group relative block w-full break-inside-avoid overflow-hidden border border-white/10 bg-char text-left transition-colors duration-400 hover:border-creed/60"
+              className="group relative block w-full break-inside-avoid overflow-hidden border border-white/10 bg-char text-left transition-colors duration-400 hover:border-brand/60"
             >
               <Image
                 src={image.src}
@@ -141,7 +141,7 @@ export default function Gallery({ limit, showFilters = true }: GalleryProps) {
                 className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100"
               />
               <span className="absolute inset-x-0 bottom-0 translate-y-3 p-5 opacity-0 transition-all duration-400 group-hover:translate-y-0 group-hover:opacity-100">
-                <span className="block font-heading text-[10px] uppercase tracking-[0.26em] text-creed">
+                <span className="block font-heading text-[10px] uppercase tracking-[0.26em] text-brand">
                   {image.category}
                 </span>
                 <span className="mt-1 block font-display text-lg uppercase leading-tight text-white">
@@ -152,7 +152,7 @@ export default function Gallery({ limit, showFilters = true }: GalleryProps) {
               {/* Corner rule that draws on hover */}
               <span
                 aria-hidden
-                className="absolute left-0 top-0 h-0 w-0.5 bg-creed transition-all duration-500 group-hover:h-full"
+                className="absolute left-0 top-0 h-0 w-0.5 bg-brand transition-all duration-500 group-hover:h-full"
               />
             </motion.button>
           ))}
@@ -177,7 +177,7 @@ export default function Gallery({ limit, showFilters = true }: GalleryProps) {
               type="button"
               onClick={close}
               aria-label="Close"
-              className="absolute right-3 top-3 grid h-12 w-12 place-items-center border border-white/20 bg-ink/80 text-white transition-colors hover:border-creed hover:text-creed sm:right-8 sm:top-8"
+              className="absolute right-3 top-3 grid h-12 w-12 place-items-center border border-white/20 bg-ink/80 text-white transition-colors hover:border-brand hover:text-brand sm:right-8 sm:top-8"
             >
               <CloseIcon className="h-5 w-5" />
             </button>
@@ -192,7 +192,7 @@ export default function Gallery({ limit, showFilters = true }: GalleryProps) {
                   step(-1);
                 }}
                 aria-label="Previous image"
-                className="grid h-12 w-12 place-items-center border border-white/20 bg-ink/80 text-white transition-colors hover:border-creed hover:text-creed"
+                className="grid h-12 w-12 place-items-center border border-white/20 bg-ink/80 text-white transition-colors hover:border-brand hover:text-brand"
               >
                 <span aria-hidden className="text-xl leading-none">‹</span>
               </button>
@@ -203,7 +203,7 @@ export default function Gallery({ limit, showFilters = true }: GalleryProps) {
                   step(1);
                 }}
                 aria-label="Next image"
-                className="grid h-12 w-12 place-items-center border border-white/20 bg-ink/80 text-white transition-colors hover:border-creed hover:text-creed"
+                className="grid h-12 w-12 place-items-center border border-white/20 bg-ink/80 text-white transition-colors hover:border-brand hover:text-brand"
               >
                 <span aria-hidden className="text-xl leading-none">›</span>
               </button>

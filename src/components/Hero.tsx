@@ -8,11 +8,9 @@ import { useRef } from "react";
 import MagneticButton from "@/components/MagneticButton";
 import { ArrowRightIcon, StarIcon, WhatsAppIcon } from "@/components/Icons";
 import { img } from "@/lib/images";
-import { site } from "@/lib/site";
+import { areaLabel, site, whatsappLink } from "@/lib/site";
 
-const TRIAL_MSG = encodeURIComponent(
-  "Hi Creed Culture Gym! I'd like to book a free trial session.",
-);
+const TRIAL_LINK = whatsappLink(`Hi ${site.name}! I'd like to book a free trial session.`);
 
 /** Mask-reveal transition used for each headline line. */
 const line = {
@@ -48,7 +46,7 @@ export default function Hero() {
       >
         <Image
           src={img.floorWide}
-          alt="The main training floor at Creed Culture Gym, Kandivali West"
+          alt="The main training floor of the gym"
           fill
           priority
           quality={75}
@@ -70,9 +68,9 @@ export default function Hero() {
       {/* Sweeping red light streaks */}
       {!reduce && (
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <span className="absolute -top-1/4 left-0 h-[150%] w-24 animate-streak bg-gradient-to-b from-transparent via-creed/25 to-transparent blur-xl" />
+          <span className="absolute -top-1/4 left-0 h-[150%] w-24 animate-streak bg-gradient-to-b from-transparent via-brand/25 to-transparent blur-xl" />
           <span
-            className="absolute -top-1/4 left-0 h-[150%] w-10 animate-streak bg-gradient-to-b from-transparent via-creed/40 to-transparent blur-md"
+            className="absolute -top-1/4 left-0 h-[150%] w-10 animate-streak bg-gradient-to-b from-transparent via-brand/40 to-transparent blur-md"
             style={{ animationDelay: "2.6s" }}
           />
         </div>
@@ -81,7 +79,7 @@ export default function Hero() {
       {/* Content -------------------------------------------------------- */}
       <motion.div
         style={reduce ? undefined : { y: contentY, opacity: contentOpacity }}
-        className="container-creed relative py-20 sm:py-24 lg:py-32"
+        className="container-brand relative py-20 sm:py-24 lg:py-32"
       >
         {/* Rating badge */}
         <motion.div
@@ -90,7 +88,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-6 inline-flex max-w-full items-center gap-2 border border-white/15 bg-white/5 px-3 py-2 backdrop-blur-sm sm:mb-7 sm:gap-3 sm:px-4"
         >
-          <span className="flex shrink-0 text-creed" aria-hidden>
+          <span className="flex shrink-0 text-brand" aria-hidden>
             {Array.from({ length: 5 }).map((_, i) => (
               <StarIcon
                 key={i}
@@ -115,7 +113,7 @@ export default function Hero() {
               animate={reduce ? undefined : "show"}
               className="block"
             >
-              Forge Your
+              {site.brand.hero.pre}
             </motion.span>
           </span>
           <span className="block overflow-hidden pb-2">
@@ -124,9 +122,9 @@ export default function Hero() {
               custom={1}
               initial={reduce ? undefined : "hidden"}
               animate={reduce ? undefined : "show"}
-              className="block text-creed drop-shadow-[0_0_38px_rgba(225,29,42,0.45)]"
+              className="block text-brand drop-shadow-[0_0_38px_rgba(225,29,42,0.45)]"
             >
-              Creed
+              {site.brand.hero.accent}
             </motion.span>
           </span>
         </h1>
@@ -138,10 +136,9 @@ export default function Hero() {
           transition={{ delay: 0.62, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mt-7 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg"
         >
-          <strong className="font-semibold text-white">9000+ sq ft</strong> of premium
-          strength, CrossFit and cardio equipment in the heart of{" "}
-          <strong className="font-semibold text-white">Kandivali West</strong>. Red steel,
-          black floors, and a room full of people who show up. Open daily until 11 PM.
+          <strong className="font-semibold text-white">{areaLabel}</strong> of premium
+          strength, CrossFit and cardio equipment. Red steel, black floors, and a room
+          full of people who show up. Open daily until 11 PM.
         </motion.p>
 
         {/* CTAs */}
@@ -161,7 +158,7 @@ export default function Hero() {
           </MagneticButton>
 
           <MagneticButton
-            href={`${site.whatsapp.href}?text=${TRIAL_MSG}`}
+            href={TRIAL_LINK}
             variant="outline"
             className="px-6 py-3.5 sm:px-9 sm:py-4"
           >
@@ -180,7 +177,7 @@ export default function Hero() {
           {["Strength & CrossFit", "Zumba & Yoga", "Certified Coaches", "Open till 11 PM"].map(
             (item) => (
               <li key={item} className="flex items-center gap-2">
-                <span aria-hidden className="h-1 w-1 bg-creed" />
+                <span aria-hidden className="h-1 w-1 bg-brand" />
                 {item}
               </li>
             ),
@@ -203,8 +200,8 @@ export default function Hero() {
           <span className="font-heading text-[10px] uppercase tracking-[0.34em] text-white/40 transition-colors group-hover:text-white/70">
             Scroll
           </span>
-          <span className="relative grid h-10 w-6 place-items-start justify-center rounded-full border border-white/25 pt-2 transition-colors group-hover:border-creed">
-            <span className="h-1.5 w-1 animate-scroll-dot rounded-full bg-creed" />
+          <span className="relative grid h-10 w-6 place-items-start justify-center rounded-full border border-white/25 pt-2 transition-colors group-hover:border-brand">
+            <span className="h-1.5 w-1 animate-scroll-dot rounded-full bg-brand" />
           </span>
         </Link>
       </motion.div>

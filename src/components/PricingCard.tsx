@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import MagneticButton from "@/components/MagneticButton";
 import { CheckIcon } from "@/components/Icons";
 import type { Plan } from "@/lib/site";
-import { site } from "@/lib/site";
+import { site, whatsappLink } from "@/lib/site";
 
 type PricingCardProps = {
   plan: Plan;
@@ -18,8 +18,8 @@ export default function PricingCard({ plan, index = 0 }: PricingCardProps) {
   const reduce = useReducedMotion();
   const featured = plan.featured;
 
-  const message = encodeURIComponent(
-    `Hi Creed Culture Gym! I'd like to join the ${plan.duration} membership (${inr(plan.price)}). Please share the next steps.`,
+  const joinLink = whatsappLink(
+    `Hi ${site.name}! I'd like to join the ${plan.duration} membership (${inr(plan.price)}). Please share the next steps.`,
   );
 
   return (
@@ -31,19 +31,19 @@ export default function PricingCard({ plan, index = 0 }: PricingCardProps) {
       whileHover={reduce ? undefined : { y: -8 }}
       className={`group relative flex h-full flex-col p-6 transition-[border-color,box-shadow] duration-400 sm:p-7 lg:p-10 ${
         featured
-          ? "z-10 border-2 border-creed bg-gradient-to-b from-char to-ink shadow-[0_34px_80px_-30px_rgba(225,29,42,0.75)] lg:scale-[1.05]"
-          : "border border-white/10 bg-char hover:border-creed/50 hover:shadow-[0_28px_60px_-28px_rgba(225,29,42,0.45)]"
+          ? "z-10 border-2 border-brand bg-gradient-to-b from-char to-ink shadow-[0_34px_80px_-30px_rgba(225,29,42,0.75)] lg:scale-[1.05]"
+          : "border border-white/10 bg-char hover:border-brand/50 hover:shadow-[0_28px_60px_-28px_rgba(225,29,42,0.45)]"
       }`}
     >
       {/* Most-popular flag */}
       {plan.badge && (
-        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-creed px-4 py-1.5 font-heading text-[10px] font-semibold uppercase tracking-[0.24em] text-white shadow-[0_10px_24px_-8px_rgba(225,29,42,0.9)]">
+        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-brand px-4 py-1.5 font-heading text-[10px] font-semibold uppercase tracking-[0.24em] text-white shadow-[0_10px_24px_-8px_rgba(225,29,42,0.9)]">
           {plan.badge}
         </span>
       )}
 
       <header>
-        <h3 className={`text-2xl sm:text-3xl ${featured ? "text-creed" : "text-white"}`}>
+        <h3 className={`text-2xl sm:text-3xl ${featured ? "text-brand" : "text-white"}`}>
           {plan.name}
         </h3>
         <p className="mt-2 font-heading text-[11px] uppercase tracking-[0.26em] text-white/40">
@@ -63,7 +63,7 @@ export default function PricingCard({ plan, index = 0 }: PricingCardProps) {
         <span className="font-semibold text-white/75">{inr(plan.perMonth)}</span> per month
       </p>
 
-      <p className="mt-5 border-l-2 border-creed/60 pl-4 text-sm italic leading-relaxed text-white/60">
+      <p className="mt-5 border-l-2 border-brand/60 pl-4 text-sm italic leading-relaxed text-white/60">
         {plan.tagline}
       </p>
 
@@ -73,7 +73,7 @@ export default function PricingCard({ plan, index = 0 }: PricingCardProps) {
           <li key={feature} className="flex items-start gap-3 text-sm text-white/65">
             <span
               className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full ${
-                featured ? "bg-creed text-white" : "bg-white/10 text-creed"
+                featured ? "bg-brand text-white" : "bg-white/10 text-brand"
               }`}
             >
               <CheckIcon className="h-3 w-3" />
@@ -86,7 +86,7 @@ export default function PricingCard({ plan, index = 0 }: PricingCardProps) {
       {/* CTA */}
       <div className="mt-9">
         <MagneticButton
-          href={`${site.whatsapp.href}?text=${message}`}
+          href={joinLink}
           variant={featured ? "primary" : "outline"}
           fullWidth
         >

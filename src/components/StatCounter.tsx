@@ -63,12 +63,12 @@ export default function StatCounter({
       {/* Red accent that lights up on hover */}
       <span
         aria-hidden
-        className="absolute left-0 top-1/2 h-0 w-px -translate-y-1/2 bg-creed transition-all duration-500 group-hover:h-full"
+        className="absolute left-0 top-1/2 h-0 w-px -translate-y-1/2 bg-brand transition-all duration-500 group-hover:h-full"
       />
       <p className="font-display text-[clamp(2rem,8vw,3.75rem)] leading-none text-white">
         {prefix}
         <span className="tabular-nums">{formatted}</span>
-        <span className="text-creed">{suffix}</span>
+        <span className="text-brand">{suffix}</span>
       </p>
       <p className="mt-2.5 font-heading text-[10px] uppercase tracking-[0.2em] text-white/45 sm:mt-3 sm:text-[11px] sm:tracking-[0.26em]">
         {label}

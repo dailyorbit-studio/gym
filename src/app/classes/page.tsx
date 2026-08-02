@@ -6,19 +6,18 @@ import ProgramCard from "@/components/ProgramCard";
 import SectionHeading from "@/components/SectionHeading";
 import SectionReveal from "@/components/SectionReveal";
 import { img } from "@/lib/images";
-import { programs, site } from "@/lib/site";
+import { areaLabel, programs, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Classes & Programs | Strength, CrossFit, Zumba & Yoga",
-  description:
-    "Strength training, CrossFit, cardio, Zumba, yoga, personal training and online classes at Creed Culture Gym, Kandivali West. Seven programs, one 9000+ sq ft floor.",
+  description: `Strength training, CrossFit, cardio, Zumba, yoga, personal training and online classes at ${site.name}. Seven programs, one ${areaLabel} floor.`,
   alternates: { canonical: "/classes" },
   openGraph: {
-    title: "Classes at Creed Culture Gym | Kandivali West, Mumbai",
+    title: `Classes at ${site.name}`,
     description:
       "Seven programs under one roof — strength, CrossFit, cardio, Zumba, yoga, personal training and online classes.",
     url: `${site.url}/classes`,
-    images: [{ url: "/images/gym-cardio-zone.webp", width: 1728, height: 1152 }],
+    images: [{ url: "/images/gym-cardio-zone.webp", width: 1728, height: 876 }],
   },
 };
 
@@ -56,7 +55,7 @@ const schedule = {
 function slotTone(slot: string) {
   if (slot === "Open Floor") return "text-white/30";
   if (slot === "Zumba" || slot === "Yoga") return "text-white/75";
-  return "text-creed";
+  return "text-brand";
 }
 
 export default function ClassesPage() {
@@ -76,7 +75,7 @@ export default function ClassesPage() {
       {/* Program grid                                                      */}
       {/* ================================================================= */}
       <section className="py-16 sm:py-20 lg:py-32">
-        <div className="container-creed">
+        <div className="container-brand">
           <SectionHeading
             eyebrow="What we offer"
             title="Programs under"
@@ -96,7 +95,7 @@ export default function ClassesPage() {
       {/* Weekly schedule                                                   */}
       {/* ================================================================= */}
       <section className="border-y border-white/10 bg-coal py-16 sm:py-20 lg:py-32">
-        <div className="container-creed">
+        <div className="container-brand">
           <SectionHeading
             eyebrow="Weekly timetable"
             title="Group classes,"
@@ -110,13 +109,13 @@ export default function ClassesPage() {
             <div className="-mx-4 overflow-x-auto px-4 min-[480px]:-mx-5 min-[480px]:px-5 lg:mx-0 lg:px-0">
               <table className="w-full min-w-[46rem] border-collapse text-left">
                 <caption className="sr-only">
-                  Weekly group class schedule at Creed Culture Gym
+                  Weekly group class schedule at {site.name}
                 </caption>
                 <thead>
                   <tr className="border-b border-white/15">
                     <th
                       scope="col"
-                      className="py-4 pr-4 font-heading text-[11px] font-semibold uppercase tracking-[0.24em] text-creed"
+                      className="py-4 pr-4 font-heading text-[11px] font-semibold uppercase tracking-[0.24em] text-brand"
                     >
                       Time
                     </th>

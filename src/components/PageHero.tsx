@@ -69,7 +69,7 @@ export default function PageHero({
         className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 to-transparent"
       />
 
-      <div className="container-creed relative">
+      <div className="container-brand relative">
         {/* Breadcrumb */}
         <motion.nav
           aria-label="Breadcrumb"
@@ -78,10 +78,10 @@ export default function PageHero({
           transition={{ duration: 0.5 }}
           className="mb-5 flex items-center gap-2 font-heading text-[11px] uppercase tracking-[0.24em] text-white/40"
         >
-          <Link href="/" className="transition-colors hover:text-creed">
+          <Link href="/" className="transition-colors hover:text-brand">
             Home
           </Link>
-          <span aria-hidden className="text-creed">
+          <span aria-hidden className="text-brand">
             /
           </span>
           <span className="text-white/70">{crumb}</span>
@@ -91,9 +91,9 @@ export default function PageHero({
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.08, duration: 0.5 }}
-          className="mb-4 flex items-center gap-3 font-heading text-xs font-semibold uppercase tracking-[0.32em] text-creed"
+          className="mb-4 flex items-center gap-3 font-heading text-xs font-semibold uppercase tracking-[0.32em] text-brand"
         >
-          <span aria-hidden className="h-px w-8 bg-creed" />
+          <span aria-hidden className="h-px w-8 bg-brand" />
           {eyebrow}
         </motion.p>
 
@@ -106,7 +106,7 @@ export default function PageHero({
               className="block"
             >
               {title}
-              {accent && <span className="text-creed"> {accent}</span>}
+              {accent && <span className="text-brand"> {accent}</span>}
             </motion.span>
           </span>
         </h1>

@@ -30,7 +30,7 @@ export default function PageTransition({ children }: { children: ReactNode }) {
           scaleX: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
           opacity: { duration: 0.3, delay: 0.5 },
         }}
-        className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-gradient-to-r from-creed-dark via-creed-light to-creed"
+        className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-gradient-to-r from-brand-dark via-brand-light to-brand"
       />
 
       {/* Incoming page */}
